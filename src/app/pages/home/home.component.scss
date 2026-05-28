@@ -110,9 +110,9 @@
 .card-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin: 0 auto;
-  max-width: 1160px;
+  max-width: 1320px;
 }
 
 .service-card {
@@ -226,12 +226,95 @@
   width: 100%;
 }
 
+.pricing-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+.pricing-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(12, 20, 40, 0.08);
+  padding: 24px;
+}
+
+.pricing-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.pricing-card p {
+  color: var(--blue);
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.pricing-card ul {
+  color: #31405b;
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.pricing-card li + li {
+  margin-top: 8px;
+}
+
+.blog-preview {
+  align-items: stretch;
+}
+
+.blog-card {
+  background: var(--navy);
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 48px);
+}
+
+.blog-card span {
+  color: #5ac0ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.blog-card h3 {
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+  line-height: 1.15;
+  margin: 18px 0 28px;
+}
+
+.blog-card a {
+  align-items: center;
+  background: var(--blue);
+  border-radius: 6px;
+  color: #fff;
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 20px;
+  width: fit-content;
+}
+
 @media (max-width: 980px) {
   .hero-content {
     grid-template-columns: 1fr;
   }
 
   .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -260,7 +343,8 @@
   }
 
   .choice-grid,
-  .card-grid {
+  .card-grid,
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 

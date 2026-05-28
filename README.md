@@ -1,6 +1,6 @@
 # Renger Home Solutions
 
-Angular landing page for a San Francisco and Bay Area home improvement contractor.
+Angular landing page for a San Francisco and Bay Area handyman and property maintenance business.
 
 ## Run locally
 
@@ -26,4 +26,4 @@ The contact form currently captures the submission in the UI as a demo. To send 
 
 ## Placeholder content
 
-Phone, address, email, ratings, licensing, and service copy are placeholders and should be replaced with the friend's real business information before publishing.
+Phone, address, email, insurance details, warranty language, pricing, and service copy should be confirmed with the business before publishing.

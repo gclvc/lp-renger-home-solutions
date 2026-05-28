@@ -34,6 +34,17 @@
           <input type="tel" name="phone" [(ngModel)]="form.phone" />
         </label>
         <label class="full">
+          What budget range do you have in mind for this project?
+          <select name="budget" [(ngModel)]="form.budget">
+            <option value="">Select a range</option>
+            <option value="under-500">Under $500</option>
+            <option value="500-1500">$500 - $1,500</option>
+            <option value="1500-5000">$1,500 - $5,000</option>
+            <option value="5000-plus">$5,000+</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </label>
+        <label class="full">
           Message <span>Max. 500 characters</span>
           <textarea name="message" [(ngModel)]="form.message" maxlength="500" required></textarea>
         </label>

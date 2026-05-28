@@ -17,7 +17,7 @@ export class ServiceAreasComponent {
     {
       name: 'San Francisco',
       label: 'Core service area',
-      text: 'Home repairs, remodels, exterior fixes, paint, drywall, flooring, and punch-list projects throughout San Francisco neighborhoods.',
+      text: 'Home repairs, exterior fixes, paint, drywall, flooring, and punch-list projects throughout San Francisco neighborhoods.',
       image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=900&q=80',
       alt: 'San Francisco skyline and bay'
     },
@@ -29,18 +29,11 @@ export class ServiceAreasComponent {
       alt: 'Coastal Bay Area neighborhood near Daly City'
     },
     {
-      name: 'Oakland',
-      label: 'East Bay',
-      text: 'Reliable crews for Oakland homes, older properties, rental updates, finish repairs, and exterior maintenance projects.',
+      name: 'Pacifica',
+      label: 'Coastside',
+      text: 'Exterior repairs, maintenance, paint, and small home projects for homes near the coast.',
       image: 'https://images.unsplash.com/photo-1534190760961-74e8c1c5c3da?auto=format&fit=crop&w=900&q=80',
-      alt: 'Oakland and East Bay urban neighborhood'
-    },
-    {
-      name: 'San Mateo',
-      label: 'Mid-Peninsula',
-      text: 'Residential remodeling, drywall, painting, flooring, and home repair help for San Mateo and nearby Peninsula homes.',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
-      alt: 'Well maintained suburban Bay Area home'
+      alt: 'Coastal Bay Area homes near Pacifica'
     },
     {
       name: 'South San Francisco',
@@ -50,11 +43,81 @@ export class ServiceAreasComponent {
       alt: 'Modern Bay Area residential buildings'
     },
     {
-      name: 'Berkeley',
-      label: 'North East Bay',
-      text: 'Home improvement work for Berkeley properties, including older homes that need careful repair and finish work.',
+      name: 'San Bruno',
+      label: 'Peninsula north',
+      text: 'Small-to-medium repairs, drywall, paint, assembly, and property maintenance for San Bruno homes.',
+      image: 'https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=900&q=80',
+      alt: 'Peninsula residential home exterior'
+    },
+    {
+      name: 'Burlingame',
+      label: 'Peninsula',
+      text: 'Kitchen and bath updates, finish repairs, flooring details, and maintenance support in Burlingame.',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
+      alt: 'Well maintained suburban Bay Area home'
+    },
+    {
+      name: 'San Mateo',
+      label: 'Mid-Peninsula',
+      text: 'Drywall, painting, flooring, exterior repairs, and home repair help for San Mateo and nearby Peninsula homes.',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80',
+      alt: 'Well maintained suburban Bay Area home'
+    },
+    {
+      name: 'San Carlos',
+      label: 'Mid-Peninsula',
+      text: 'Property maintenance, fixture updates, paint, drywall patches, and exterior repair support in San Carlos.',
+      image: 'https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=900&q=80',
+      alt: 'Bay Area residential street'
+    },
+    {
+      name: 'Redwood City',
+      label: 'Mid-Peninsula',
+      text: 'Home repair help for Redwood City properties, including finish work, caulking, assembly, paint, and maintenance.',
       image: 'https://images.unsplash.com/photo-1592595896551-12b371d546d5?auto=format&fit=crop&w=900&q=80',
       alt: 'Bay Area craftsman style residential street'
+    },
+    {
+      name: 'Woodside',
+      label: 'Peninsula foothills',
+      text: 'Maintenance, careful repairs, flooring details, and exterior fixes for Woodside properties.',
+      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+      alt: 'Residential home surrounded by trees'
+    },
+    {
+      name: 'Palo Alto',
+      label: 'South Peninsula',
+      text: 'Handyman support, drywall and paint repairs, fixture updates, and property maintenance in Palo Alto.',
+      image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80',
+      alt: 'Bright Bay Area home exterior'
+    },
+    {
+      name: 'Mountain View',
+      label: 'South Peninsula',
+      text: 'Small home projects, assembly, caulking, paint touch-ups, and maintenance support in Mountain View.',
+      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80',
+      alt: 'Updated home interior'
+    },
+    {
+      name: 'Sunnyvale',
+      label: 'South Bay access',
+      text: 'Practical home fixes, drywall repairs, flooring details, and exterior repair help for Sunnyvale homes.',
+      image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=900&q=80',
+      alt: 'Flooring detail in a bright home'
+    },
+    {
+      name: 'Foster City',
+      label: 'Peninsula waterfront',
+      text: 'Property maintenance, caulking, door repairs, fixture updates, and punch-list support in Foster City.',
+      image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
+      alt: 'Clean residential interior'
+    },
+    {
+      name: 'Millbrae',
+      label: 'Peninsula north',
+      text: 'Exterior repairs, drywall and paint, flooring details, and everyday home fixes for Millbrae residents.',
+      image: 'https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=900&q=80',
+      alt: 'Bay Area residential entryway'
     }
   ];
 }

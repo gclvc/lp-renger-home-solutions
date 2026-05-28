@@ -3,18 +3,17 @@
       <div class="hero-content page-grid">
         <div class="hero-copy">
           <div class="trust-row">
-            <span>4.9 rated by local homeowners</span>
-            <span>Licensed & insured crews</span>
+            <span>Insured Bay Area Handyman</span>
+            <span>Property maintenance expert</span>
           </div>
-          <h1>Reliable Home Improvement Contractors in San Francisco, CA</h1>
+          <h1>Reliable Home Improvement Help in San Francisco, CA</h1>
           <p>
-            Renger Home Solutions helps Bay Area homeowners handle repairs, remodels, roofing, painting, drywall, flooring,
-            and punch-list projects with clean communication and dependable workmanship.
+            No stress, no mess. Just honest communication and quality work for your home.
           </p>
           <div class="pill-row">
-            <span>Interior Remodeling</span>
+            <span>Property Maintenance</span>
             <span>Exterior Repairs</span>
-            <span>Same-week Estimates</span>
+            <span>Drywall & Paint</span>
           </div>
         </div>
 
@@ -34,7 +33,7 @@
               <span>Remodels & upgrades</span>
             </a>
           </div>
-          <a class="primary-action" routerLink="/contact">Start My Estimate</a>
+          <a class="primary-action" routerLink="/contact">Request My Estimate</a>
         </aside>
       </div>
     </section>
@@ -43,7 +42,7 @@
       <div class="section-heading">
         <span class="eyebrow">Our Services</span>
         <h2>Home Solutions Built Around Your Property</h2>
-        <p>From quick repairs to larger remodeling projects, our team keeps the work organized, clean, and easy to schedule.</p>
+        <p>From quick repairs to small-to-medium updates, our team keeps the work organized, clean, and easy to schedule.</p>
       </div>
 
       <div class="card-grid">
@@ -69,7 +68,7 @@
         <span class="blue-note">Local experience, practical scheduling, responsive service.</span>
         <h2>Why Choose Renger Home Solutions in San Francisco?</h2>
         <div class="check-list">
-          <p><strong>Full-service home repair support.</strong> We handle the details homeowners often struggle to coordinate across multiple trades.</p>
+          <p><strong>Fully insured home repair support.</strong> We handle the details homeowners often struggle to coordinate across multiple trades.</p>
           <p><strong>Bay Area property knowledge.</strong> We understand older homes, tight lots, weather exposure, and busy neighborhood access.</p>
           <p><strong>Clean project management.</strong> You get clear estimates, scheduling updates, and respectful work areas from start to finish.</p>
         </div>
@@ -85,7 +84,7 @@
       <div class="check-list">
         <p><strong>Fewer handoffs.</strong> A single point of contact makes estimates, scheduling, and progress easier to follow.</p>
         <p><strong>Better finish quality.</strong> Small details like trim, caulking, patching, and paint matching are treated as part of the job.</p>
-        <p><strong>CTA-friendly landing flow.</strong> Every section gives the homeowner a clear next step: call or request an estimate.</p>
+        <p><strong>Simple next steps.</strong> Call the team or send project details when you are ready to plan the work.</p>
       </div>
     </div>
   </div>
@@ -96,11 +95,11 @@
 
 <section class="section video-section">
   <div class="video-copy">
-    <span class="eyebrow">Meet The Team</span>
-    <h2>Hear From the People Behind Renger Home Solutions</h2>
+    <span class="eyebrow">Meet The Owners</span>
+    <h2>Get to Know the People Behind Renger Home Solutions</h2>
     <p>
-      A short introduction video helps homeowners understand who they are inviting into their home,
-      how the team works, and why clear communication matters on every project.
+      This owner introduction gives homeowners a clearer sense of the people they are inviting into their home,
+      the story behind the business, and why honest communication matters on every project.
     </p>
   </div>
 
@@ -114,9 +113,47 @@
   </div>
 </section>
 
+<section class="section soft">
+  <div class="section-heading">
+    <span class="eyebrow">Starting Prices</span>
+    <h2>Service Pricing</h2>
+    <p>Common starting prices for small home projects. Final pricing depends on project details, materials, access, and scope.</p>
+  </div>
+
+  <div class="pricing-grid">
+    @for (group of pricingGroups; track group.title) {
+      <article class="pricing-card">
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.note }}</p>
+        <ul>
+          @for (item of group.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="section split blog-preview">
+  <div>
+    <span class="blue-note">Homeowner Guide</span>
+    <h2>How a Professional Handyman Can Improve Your Home and Save You Money</h2>
+    <p>
+      A helpful blog article can explain when it makes sense to call for small repairs, maintenance,
+      drywall work, caulking, assembly, and finish updates before they become larger problems.
+    </p>
+  </div>
+  <div class="blog-card">
+    <span>Planned Blog Topic</span>
+    <h3>Home improvement guidance for Bay Area homeowners</h3>
+    <a routerLink="/contact">Ask About a Project</a>
+  </div>
+</section>
+
 <app-faq
   [items]="faqs"
-  intro="General answers for homeowners comparing contractors in San Francisco and the Bay Area."
+  intro="General answers for homeowners comparing handyman and property maintenance services in San Francisco and the Bay Area."
 />
 
     <section class="section cta-band">

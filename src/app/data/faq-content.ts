@@ -2,23 +2,35 @@ import { FaqItem } from '../shared/faq/faq.component';
 
 export const homeFaqs: FaqItem[] = [
   {
-    question: 'What should I look for in a home improvement contractor in San Francisco, CA?',
-    answer: 'Look for clear estimates, insurance, local experience, references, and a crew that communicates schedule changes before they become surprises.'
+    question: 'How do you charge for your services?',
+    answer: 'We typically charge by the project, as a flat rate, rather than by the hour. This means you know how much the job costs before work begins. No hidden fees, no surprises.'
   },
   {
-    question: 'Can Renger Home Solutions handle small repairs and larger remodels?',
-    answer: 'Yes. The team can help with small punch-list work, repairs, and larger residential improvement projects.'
+    question: 'Who buys the materials for the job?',
+    answer: 'Whatever is easier for you. You can purchase the materials yourself ahead of time, or we can pick them up for you and add them to the final invoice. We want the process to feel smooth from the start.'
   },
   {
-    question: 'How do I get started with a project estimate?',
-    answer: 'Call the number on the site or submit the contact form with your location, photos if available, and a short description of the project.'
+    question: 'What types of small jobs can you help with?',
+    answer: 'We handle a wide variety of everyday home fixes, including TV mounts, light fixtures, smart doorbells, drywall patches, minor plumbing and faucet work, interior painting, and door adjustments. If it is a small-to-medium home project, we can help fix it.'
+  },
+  {
+    question: 'Do I need to be home during the service?',
+    answer: 'It is entirely up to you. Many clients are busy professionals who prefer to provide a lockbox code or leave a key. Because we are fully insured, you can feel confident that your home will be treated with care and respect.'
+  },
+  {
+    question: 'Do you offer any warranty on your work?',
+    answer: 'Yes. We stand behind the quality of our work and offer a standard 90-day warranty on labor. If something is not right with the fix, we will come back and make it right.'
+  },
+  {
+    question: 'Can you help me with property maintenance for a rental or Airbnb?',
+    answer: 'Absolutely. We partner with local landlords and property managers to handle quick turnovers, fix wear-and-tear issues, and keep rental properties in good shape for the next guest.'
   }
 ];
 
 export const aboutFaqs: FaqItem[] = [
   {
     question: 'What kind of company is Renger Home Solutions?',
-    answer: 'Renger Home Solutions is positioned as a residential home improvement company focused on repairs, remodels, exterior work, and practical project support for Bay Area homeowners.'
+    answer: 'Renger Home Solutions is a fully insured Bay Area handyman and property maintenance company focused on repairs, exterior work, kitchen and bath updates, drywall, paint, flooring, and practical project support for homeowners.'
   },
   {
     question: 'Does the company work with new customers?',
@@ -33,7 +45,7 @@ export const aboutFaqs: FaqItem[] = [
 export const serviceAreaFaqs: FaqItem[] = [
   {
     question: 'Which Bay Area communities does Renger Home Solutions serve?',
-    answer: 'The current service area page highlights San Francisco, Daly City, Oakland, San Mateo, South San Francisco, and Berkeley.'
+    answer: 'Renger Home Solutions serves San Francisco, Daly City, Pacifica, South San Francisco, San Bruno, Burlingame, San Mateo, San Carlos, Redwood City, Woodside, Palo Alto, Mountain View, Sunnyvale, Foster City, and Millbrae.'
   },
   {
     question: 'Can I request service if I am near one of the listed areas?',
@@ -41,7 +53,7 @@ export const serviceAreaFaqs: FaqItem[] = [
   },
   {
     question: 'Do services change by location?',
-    answer: 'Most core services are available across the service area, including repairs, remodeling, drywall, painting, flooring, roofing, and exterior fixes.'
+    answer: 'Most core services are available across the service area, including exterior repairs, kitchen and bath updates, drywall, painting, flooring, assembly, caulking, and property maintenance.'
   }
 ];
 

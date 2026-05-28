@@ -1,0 +1,60 @@
+<section class="page-hero work-hero">
+  <div>
+    <span class="eyebrow">Work With Us</span>
+    <h1>Interested in working with us?</h1>
+    <p>Join our growing team. Tell us about your skills, contact information, and hands-on experience.</p>
+  </div>
+</section>
+
+<section class="section work-layout">
+  <aside class="work-card">
+    <h2>What to send</h2>
+    <p>
+      Help us understand where you fit best. Include the work you know, how long you have been doing it,
+      and the type of jobs you are comfortable handling.
+    </p>
+    <ul>
+      <li>Primary specialty</li>
+      <li>Years of hands-on experience</li>
+      <li>Tools, transportation, and availability</li>
+      <li>Examples of recent work, if available</li>
+    </ul>
+    <a routerLink="/contact">Looking for service instead?</a>
+  </aside>
+
+  <form class="work-form" (ngSubmit)="submit()" #workForm="ngForm">
+    <h2>Tell us about your experience</h2>
+    <label>
+      Name
+      <input name="firstName" [(ngModel)]="form.firstName" required />
+    </label>
+    <label>
+      Last name
+      <input name="lastName" [(ngModel)]="form.lastName" required />
+    </label>
+    <label>
+      Email
+      <input type="email" name="email" [(ngModel)]="form.email" required />
+    </label>
+    <label>
+      Phone
+      <input type="tel" name="phone" [(ngModel)]="form.phone" />
+    </label>
+    <label>
+      Primary specialty
+      <input name="specialty" [(ngModel)]="form.specialty" placeholder="Drywall, painting, flooring..." required />
+    </label>
+    <label>
+      Years of experience
+      <input name="yearsExperience" [(ngModel)]="form.yearsExperience" placeholder="Example: 5 years" required />
+    </label>
+    <label class="full">
+      Tell us about your skills, availability, tools, transportation, and recent work.
+      <textarea name="experience" [(ngModel)]="form.experience" maxlength="700" required></textarea>
+    </label>
+    <button type="submit" [disabled]="workForm.invalid">Submit Application</button>
+    @if (submitted) {
+      <p class="form-status">Thanks. This demo captured the application. Connect a form service or API endpoint to send real emails.</p>
+    }
+  </form>
+</section>
