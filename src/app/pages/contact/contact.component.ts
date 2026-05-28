@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { contactFaqs } from '../../data/faq-content';
 import { FaqComponent } from '../../shared/faq/faq.component';
@@ -22,6 +23,16 @@ export class ContactComponent {
     budget: '',
     message: ''
   };
+
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParamMap.subscribe((params) => {
+      const city = params.get('city');
+
+      if (city && !this.form.message) {
+        this.form.message = `Hello, I am requesting service in ${city}, ...`;
+      }
+    });
+  }
 
   submit() {
     this.submitted = true;

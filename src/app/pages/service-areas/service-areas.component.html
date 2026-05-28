@@ -15,19 +15,28 @@
         <p>Service area coverage for homeowners looking for exterior repairs, kitchen and bath updates, drywall, painting, flooring, and general handyman help.</p>
       </div>
 
+      <label class="area-search">
+        Search by city
+        <input type="search" name="serviceAreaSearch" [(ngModel)]="searchTerm" placeholder="Search San Mateo, Pacifica, Daly City..." />
+      </label>
+
       <div class="area-card-grid">
-        @for (area of areas; track area.name) {
+        @for (area of filteredAreas; track area.name) {
           <article class="area-card">
             <img [src]="area.image" [alt]="area.alt" />
             <div>
               <span>{{ area.label }}</span>
               <h3>{{ area.name }}</h3>
               <p>{{ area.text }}</p>
-              <a routerLink="/contact">Request service in {{ area.name }}</a>
+              <a routerLink="/contact" [queryParams]="{ city: area.name }">Request service in {{ area.name }}</a>
             </div>
           </article>
         }
       </div>
+
+      @if (filteredAreas.length === 0) {
+        <p class="empty-search">No matching service area found. Try another Bay Area city or contact the team to confirm availability.</p>
+      }
 
       <div class="map-panel">
         <div>

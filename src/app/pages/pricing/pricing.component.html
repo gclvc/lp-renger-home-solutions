@@ -1,0 +1,43 @@
+<section class="page-hero pricing-hero">
+  <div>
+    <span class="eyebrow">Starting Prices</span>
+    <h1>Clear starting prices for common home projects</h1>
+    <p>
+      Use these prices to plan the first conversation. Final pricing depends on project details,
+      materials, access, and scope.
+    </p>
+  </div>
+</section>
+
+<section class="section pricing-section">
+  <div class="pricing-layout">
+    <aside class="pricing-intro">
+      <span class="blue-note">Simple numbers before the work starts.</span>
+      <h2>Common jobs, organized by service type.</h2>
+      <p>
+        Furniture assembly, TV mounting, caulking, and door repair are listed here so homeowners
+        can estimate the size of a project before requesting service.
+      </p>
+      <a class="secondary-action" routerLink="/contact">Request an Estimate</a>
+    </aside>
+
+    <div class="pricing-list">
+      @for (group of pricingGroups; track group.title) {
+        <article class="pricing-panel">
+          <div class="pricing-panel-header">
+            <div>
+              <h3>{{ group.title }}</h3>
+              <p>{{ group.note }}</p>
+            </div>
+            <strong>{{ group.featuredPrice }}</strong>
+          </div>
+          <ul>
+            @for (item of group.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

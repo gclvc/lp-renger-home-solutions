@@ -1,0 +1,98 @@
+.pricing-layout {
+  align-items: start;
+  display: grid;
+  gap: clamp(34px, 5vw, 72px);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+}
+
+.pricing-intro {
+  position: sticky;
+  top: 142px;
+}
+
+.pricing-intro h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.pricing-intro .secondary-action {
+  margin-top: 12px;
+}
+
+.pricing-list {
+  display: grid;
+  gap: 18px;
+}
+
+.pricing-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 34px rgba(12, 20, 40, 0.08);
+  overflow: hidden;
+}
+
+.pricing-panel-header {
+  align-items: center;
+  background: linear-gradient(100deg, #f8fbff, #eef4ff);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.pricing-panel-header h3 {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.pricing-panel-header p {
+  color: var(--blue);
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.pricing-panel-header strong {
+  background: var(--navy);
+  border-radius: 999px;
+  color: #fff;
+  flex: 0 0 auto;
+  font-size: 1.1rem;
+  padding: 12px 16px;
+}
+
+.pricing-panel ul {
+  column-gap: 26px;
+  columns: 2;
+  color: #31405b;
+  line-height: 1.55;
+  margin: 0;
+  padding: 24px 24px 26px 42px;
+}
+
+.pricing-panel li {
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 980px) {
+  .pricing-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-intro {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pricing-panel ul {
+    columns: 1;
+  }
+}

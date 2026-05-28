@@ -114,24 +114,23 @@
 </section>
 
 <section class="section soft">
-  <div class="section-heading">
-    <span class="eyebrow">Starting Prices</span>
-    <h2>Service Pricing</h2>
-    <p>Common starting prices for small home projects. Final pricing depends on project details, materials, access, and scope.</p>
-  </div>
+  <div class="pricing-preview">
+    <div class="pricing-preview-copy">
+      <span class="eyebrow">Starting Prices</span>
+      <h2>Plan common home projects with clearer starting numbers.</h2>
+      <p>Furniture assembly, TV mounting, caulking, and door repair have starting prices listed before you request service.</p>
+      <a class="secondary-action" routerLink="/pricing">View Service Pricing</a>
+    </div>
 
-  <div class="pricing-grid">
-    @for (group of pricingGroups; track group.title) {
-      <article class="pricing-card">
-        <h3>{{ group.title }}</h3>
-        <p>{{ group.note }}</p>
-        <ul>
-          @for (item of group.items; track item) {
-            <li>{{ item }}</li>
-          }
-        </ul>
-      </article>
-    }
+    <div class="pricing-mini-grid">
+      @for (group of pricingPreview; track group.title) {
+        <article class="pricing-mini-card">
+          <span>{{ group.price }}</span>
+          <h3>{{ group.title }}</h3>
+          <p>{{ group.note }}</p>
+        </article>
+      }
+    </div>
   </div>
 </section>
 

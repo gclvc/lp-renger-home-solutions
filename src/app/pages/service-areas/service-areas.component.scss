@@ -1,3 +1,22 @@
+.area-search {
+  color: var(--ink);
+  display: grid;
+  font-size: 0.92rem;
+  font-weight: 800;
+  gap: 10px;
+  margin: -18px auto 34px;
+  max-width: 680px;
+}
+
+.area-search input {
+  border: 1px solid #c8d0df;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(12, 20, 40, 0.06);
+  min-height: 54px;
+  padding: 0 18px;
+  width: 100%;
+}
+
 .area-card-grid {
   display: grid;
   gap: 24px;
@@ -63,6 +82,17 @@
   background: var(--ink);
   color: #fff;
   transform: translateY(-1px);
+}
+
+.empty-search {
+  background: #f7f9ff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: #31405b;
+  margin: 0 auto;
+  max-width: 680px;
+  padding: 18px;
+  text-align: center;
 }
 
 .map-panel {
