@@ -3,16 +3,34 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 const formDestination = 'https://formsubmit.co/ajax/hello@rengerhomesolutions.com';
+const formTimeoutMs = 10000;
+const minimumLoadingMs = 900;
 
-function sendForm(payload: Record<string, string>) {
-  fetch(formDestination, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload)
-  }).catch((error) => console.warn('FormSubmit request failed', error));
+function wait(milliseconds: number) {
+  return new Promise<void>((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
+async function sendForm(payload: Record<string, string>) {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), formTimeoutMs);
+
+  try {
+    const response = await fetch(formDestination, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal
+    });
+
+    if (!response.ok) {
+      throw new Error('The form could not be sent.');
+    }
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
 }
 
 @Component({
@@ -37,7 +55,7 @@ export class WorkWithUsComponent {
     experience: ''
   };
 
-  submit() {
+  async submit() {
     if (this.submitting) {
       return;
     }
@@ -49,18 +67,21 @@ export class WorkWithUsComponent {
 
     try {
       const name = `${this.form.firstName} ${this.form.lastName}`.trim();
-      sendForm({
-        'Form type': 'Work application',
-        name,
-        email: this.form.email,
-        phone: this.form.phone || 'Not provided',
-        specialty: this.form.specialty,
-        yearsExperience: this.form.yearsExperience,
-        experience: this.form.experience,
-        _subject: `New work application from ${name || 'Renger website'}`,
-        _template: 'table',
-        _captcha: 'false'
-      });
+      await Promise.all([
+        sendForm({
+          'Form type': 'Work application',
+          name,
+          email: this.form.email,
+          phone: this.form.phone || 'Not provided',
+          specialty: this.form.specialty,
+          yearsExperience: this.form.yearsExperience,
+          experience: this.form.experience,
+          _subject: `New work application from ${name || 'Renger website'}`,
+          _template: 'table',
+          _captcha: 'false'
+        }),
+        wait(minimumLoadingMs),
+      ]);
 
       this.submitted = true;
       this.formStatus = 'Thanks. Your application was sent to Renger Home Solutions.';

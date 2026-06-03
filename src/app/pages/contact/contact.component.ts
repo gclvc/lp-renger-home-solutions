@@ -6,16 +6,34 @@ import { contactFaqs } from '../../data/faq-content';
 import { FaqComponent } from '../../shared/faq/faq.component';
 
 const formDestination = 'https://formsubmit.co/ajax/hello@rengerhomesolutions.com';
+const formTimeoutMs = 10000;
+const minimumLoadingMs = 900;
 
-function sendForm(payload: Record<string, string>) {
-  fetch(formDestination, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  }).catch((error) => console.warn('FormSubmit request failed', error));
+function wait(milliseconds: number) {
+  return new Promise<void>((resolve) => window.setTimeout(resolve, milliseconds));
+}
+
+async function sendForm(payload: Record<string, string>) {
+  const controller = new AbortController();
+  const timeoutId = window.setTimeout(() => controller.abort(), formTimeoutMs);
+
+  try {
+    const response = await fetch(formDestination, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      throw new Error('The form could not be sent.');
+    }
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
 }
 
 @Component({
@@ -50,7 +68,7 @@ export class ContactComponent {
     });
   }
 
-  submit() {
+  async submit() {
     if (this.submitting) {
       return;
     }
@@ -62,17 +80,20 @@ export class ContactComponent {
 
     try {
       const name = `${this.form.firstName} ${this.form.lastName}`.trim();
-      sendForm({
-        'Form type': 'Client estimate request',
-        name,
-        email: this.form.email,
-        phone: this.form.phone || 'Not provided',
-        budget: this.form.budget || 'Not provided',
-        message: this.form.message,
-        _subject: `New estimate request from ${name || 'Renger website'}`,
-        _template: 'table',
-        _captcha: 'false',
-      });
+      await Promise.all([
+        sendForm({
+          'Form type': 'Client estimate request',
+          name,
+          email: this.form.email,
+          phone: this.form.phone || 'Not provided',
+          budget: this.form.budget || 'Not provided',
+          message: this.form.message,
+          _subject: `New estimate request from ${name || 'Renger website'}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+        wait(minimumLoadingMs),
+      ]);
 
       this.submitted = true;
       this.formStatus =
