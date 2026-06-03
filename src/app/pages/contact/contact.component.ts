@@ -9,7 +9,7 @@ import { FaqComponent } from '../../shared/faq/faq.component';
   selector: 'app-contact',
   imports: [FaqComponent, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
   submitted = false;
@@ -24,7 +24,7 @@ export class ContactComponent {
     email: '',
     phone: '',
     budget: '',
-    message: ''
+    message: '',
   };
 
   constructor(private route: ActivatedRoute) {
@@ -53,8 +53,8 @@ export class ContactComponent {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type: 'estimate',
-          ...this.form
-        })
+          ...this.form,
+        }),
       });
 
       if (!response.ok) {
@@ -63,18 +63,23 @@ export class ContactComponent {
       }
 
       this.submitted = true;
-      this.formStatus = 'Obrigado por nos enviar uma mensagem. Responderemos o mais rápido possível.';
+      this.formStatus = `Thank you very much for contacting Renger Home Solutions.
+
+            We truly appreciate your message and your interest in our services. Our team will review your request and get back to you as soon as possible.
+
+            We look forward to speaking with you.`;
       this.form = {
         firstName: '',
         lastName: '',
         email: '',
         phone: '',
         budget: '',
-        message: ''
+        message: '',
       };
     } catch (error) {
       this.formError = true;
-      this.formStatus = 'Sorry, the form could not be sent. Please call or email Renger Home Solutions directly.';
+      this.formStatus =
+        'Sorry, the form could not be sent. Please call or email Renger Home Solutions directly.';
     } finally {
       this.submitting = false;
     }

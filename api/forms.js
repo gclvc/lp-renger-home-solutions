@@ -1,4 +1,5 @@
 const destinationEmail = 'hello@rengerhomesolutions.com';
+const https = require('https');
 
 function readBody(req) {
   if (req.body && typeof req.body === 'object') {
@@ -100,6 +101,54 @@ function validate(payload) {
   return '';
 }
 
+function postToFormSubmit(data, siteOrigin) {
+  const body = JSON.stringify(data);
+
+  return new Promise((resolve, reject) => {
+    const req = https.request(
+      {
+        hostname: 'formsubmit.co',
+        path: `/ajax/${encodeURIComponent(destinationEmail)}`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Origin: siteOrigin,
+          Referer: `${siteOrigin}/contact`,
+          'Content-Length': Buffer.byteLength(body)
+        }
+      },
+      (response) => {
+        let raw = '';
+
+        response.on('data', (chunk) => {
+          raw += chunk;
+        });
+
+        response.on('end', () => {
+          try {
+            resolve({
+              ok: response.statusCode >= 200 && response.statusCode < 300,
+              statusCode: response.statusCode,
+              result: raw ? JSON.parse(raw) : {}
+            });
+          } catch (error) {
+            resolve({
+              ok: response.statusCode >= 200 && response.statusCode < 300,
+              statusCode: response.statusCode,
+              result: {}
+            });
+          }
+        });
+      }
+    );
+
+    req.on('error', reject);
+    req.write(body);
+    req.end();
+  });
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -119,27 +168,19 @@ module.exports = async function handler(req, res) {
       : formatEstimate(payload);
 
     const siteOrigin = req.headers.origin || 'https://www.rengerhomesolutions.com';
-    const response = await fetch(`https://formsubmit.co/ajax/${destinationEmail}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Origin: siteOrigin,
-        Referer: `${siteOrigin}/contact`
-      },
-      body: JSON.stringify({
+    const { ok, result } = await postToFormSubmit(
+      {
         name: formatted.name || 'Renger website visitor',
         email: clean(payload.email),
         _subject: formatted.subject,
         _template: 'table',
         _captcha: 'false',
         message: formatted.message
-      })
-    });
+      },
+      siteOrigin
+    );
 
-    const result = await response.json().catch(() => ({}));
-
-    if (!response.ok) {
+    if (!ok) {
       return res.status(502).json({
         error: result.message || 'The email service could not send the form.'
       });
