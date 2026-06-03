@@ -1,4 +1,4 @@
-const destinationEmail = 'rengerhomesolutions@gmail.com';
+const destinationEmail = 'hello@rengerhomesolutions.com';
 
 function readBody(req) {
   if (req.body && typeof req.body === 'object') {
