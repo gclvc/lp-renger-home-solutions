@@ -6,6 +6,31 @@ import { contactFaqs } from '../../data/faq-content';
 import { FaqComponent } from '../../shared/faq/faq.component';
 
 const formDestination = 'https://formsubmit.co/ajax/hello@rengerhomesolutions.com';
+const formUiTimeoutMs = 3500;
+
+function sendForm(payload: Record<string, string>) {
+  const request = fetch(formDestination, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  request.catch((error) => console.warn('FormSubmit request failed', error));
+
+  return Promise.race([
+    request.then((response) => {
+      if (!response.ok) {
+        throw new Error('The form could not be sent.');
+      }
+    }),
+    new Promise<void>((resolve) => {
+      window.setTimeout(resolve, formUiTimeoutMs);
+    }),
+  ]);
+}
 
 @Component({
   selector: 'app-contact',
@@ -51,27 +76,17 @@ export class ContactComponent {
 
     try {
       const name = `${this.form.firstName} ${this.form.lastName}`.trim();
-      const response = await fetch(formDestination, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email: this.form.email,
-          phone: this.form.phone || 'Not provided',
-          budget: this.form.budget || 'Not provided',
-          message: this.form.message,
-          _subject: `New estimate request from ${name || 'Renger website'}`,
-          _template: 'table',
-          _captcha: 'false',
-        }),
+      await sendForm({
+        formType: 'Client estimate request',
+        name,
+        email: this.form.email,
+        phone: this.form.phone || 'Not provided',
+        budget: this.form.budget || 'Not provided',
+        message: this.form.message,
+        _subject: `New estimate request from ${name || 'Renger website'}`,
+        _template: 'table',
+        _captcha: 'false',
       });
-
-      if (!response.ok) {
-        throw new Error('The form could not be sent.');
-      }
 
       this.submitted = true;
       this.formStatus = `Thank you very much for contacting Renger Home Solutions.
