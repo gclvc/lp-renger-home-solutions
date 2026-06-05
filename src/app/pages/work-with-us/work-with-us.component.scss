@@ -65,7 +65,15 @@ textarea {
   border: 1px solid #c8d0df;
   border-radius: 6px;
   min-height: 54px;
+  outline: none;
   padding: 12px 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.14);
 }
 
 textarea {

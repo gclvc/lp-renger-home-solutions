@@ -6,20 +6,35 @@
 }
 
 .contact-card {
-  background: var(--blue);
+  background: var(--navy);
+  border-radius: 8px;
   color: #fff;
   padding: 46px;
 }
 
+.contact-card h2 {
+  font-size: 1.55rem;
+}
+
 .contact-card p {
-  color: #eaf1ff;
+  color: #8fa8d0;
+  line-height: 1.7;
 }
 
 .contact-card a,
 .contact-card span {
   display: block;
   font-weight: 700;
-  margin-top: 24px;
+  margin-top: 22px;
+}
+
+.contact-card a {
+  color: #8bb1ff;
+  transition: color 160ms ease;
+}
+
+.contact-card a:hover {
+  color: #fff;
 }
 
 .contact-form {
@@ -45,6 +60,24 @@ label {
   gap: 8px;
 }
 
+label .lt {
+  color: var(--ink);
+  float: none;
+  font-weight: 700;
+}
+
+label .req {
+  color: #c0392b;
+  float: none;
+  font-weight: 700;
+}
+
+label .char-limit {
+  color: var(--muted);
+  float: right;
+  font-weight: 400;
+}
+
 label span {
   color: var(--muted);
   float: right;
@@ -57,7 +90,16 @@ textarea {
   border: 1px solid #c8d0df;
   border-radius: 6px;
   min-height: 54px;
+  outline: none;
   padding: 12px 14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(47, 125, 246, 0.14);
 }
 
 select {

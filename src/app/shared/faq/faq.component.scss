@@ -66,7 +66,7 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: max-height 260ms ease, opacity 180ms ease;
+  transition: max-height 300ms ease, opacity 200ms ease, padding 300ms ease;
 }
 
 .faq-answer p {
@@ -77,7 +77,7 @@
 }
 
 .faq-item.open .faq-answer {
-  max-height: 220px;
+  max-height: 800px;
   opacity: 1;
 }
 

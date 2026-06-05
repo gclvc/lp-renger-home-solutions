@@ -18,20 +18,20 @@
       <form class="contact-form" (ngSubmit)="submit()" #estimateForm="ngForm">
         <h2>Send us a message</h2>
         <label>
-          First name
-          <input name="firstName" [(ngModel)]="form.firstName" required />
+          <span class="lt">First name <span class="req" aria-hidden="true">*</span></span>
+          <input name="firstName" [(ngModel)]="form.firstName" required autocomplete="given-name" />
         </label>
         <label>
-          Last name
-          <input name="lastName" [(ngModel)]="form.lastName" required />
+          <span class="lt">Last name <span class="req" aria-hidden="true">*</span></span>
+          <input name="lastName" [(ngModel)]="form.lastName" required autocomplete="family-name" />
         </label>
         <label>
-          Email
-          <input type="email" name="email" [(ngModel)]="form.email" required />
+          <span class="lt">Email <span class="req" aria-hidden="true">*</span></span>
+          <input type="email" name="email" [(ngModel)]="form.email" required autocomplete="email" />
         </label>
         <label>
           Phone
-          <input type="tel" name="phone" [(ngModel)]="form.phone" />
+          <input type="tel" name="phone" [(ngModel)]="form.phone" autocomplete="tel" />
         </label>
         <label class="full">
           What budget range do you have in mind for this project?
@@ -45,7 +45,7 @@
           </select>
         </label>
         <label class="full">
-          Message <span>Max. 500 characters</span>
+          <span class="lt">Message <span class="req" aria-hidden="true">*</span> <span class="char-limit">Max. 500 characters</span></span>
           <textarea name="message" [(ngModel)]="form.message" maxlength="500" required></textarea>
         </label>
         <button type="submit" [disabled]="estimateForm.invalid || submitting">
