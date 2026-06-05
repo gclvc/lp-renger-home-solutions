@@ -39,10 +39,21 @@
 }
 
 .trust-row span {
-  color: #e8efff;
-  font-size: 0.86rem;
-  font-weight: 800;
+  align-items: center;
+  color: #c8d8f8;
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 7px;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.trust-row span::before {
+  color: var(--green);
+  content: '✓';
+  font-size: 0.95rem;
+  font-weight: 900;
 }
 
 .hero h1 {
